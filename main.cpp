@@ -15,7 +15,7 @@ int calculate_k(int D, int N) {
 }
 
 // Fonction pour simuler un lancer de dé automatique (nombre aléatoire de 1 à D)
-int roll_die(int D) {
+int roll_die(int D=6) {
     random_device rd;  // Générateur aléatoire de haute qualité
     mt19937 gen(rd()); // Générateur de nombre pseudo-aléatoire
     uniform_int_distribution<> distrib(1, D); // Distribution uniforme de 1 à D
@@ -23,7 +23,7 @@ int roll_die(int D) {
 }
 
 // Fonction pour convertir une série de lancers en un nombre en base D
-int convert_to_base_D(const vector<int>& rolls, int D) {
+int convert_to_base_D(const vector<int>& rolls, int D=6) {
     int result = 0;
     for (long unsigned int i = 0; i < rolls.size(); ++i) {
         result = result * D + (rolls[i] - 1); // Conversion en base D, indexé à partir de 0
